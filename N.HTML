@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, button {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Celsius to Fahrenheit and Vice Versa Converter</title>
+</head>
+<body>
+
+    <h1>Celsius to Fahrenheit and Vice Versa Converter</h1>
+
+    <label for="temperature">Enter Temperature:</label>
+    <input type="number" id="temperature" placeholder="Enter temperature">
+    
+    <label for="unit">Select Unit:</label>
+    <select id="unit">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+    </select>
+
+    <button onclick="convert()">Convert</button>
+
+    <div id="result"></div>
+
+    <script>
+        function convert() {
+            var temperature = parseFloat(document.getElementById("temperature").value);
+            var unit = document.getElementById("unit").value;
+            var resultDiv = document.getElementById("result");
+
+            if (unit === "celsius") {
+                var fahrenheit = (temperature * 9/5) + 32;
+                resultDiv.innerHTML = `<p>${temperature} Celsius is ${fahrenheit.toFixed(2)} Fahrenheit</p>`;
+            } else {
+                var celsius = (temperature - 32) * 5/9;
+                resultDiv.innerHTML = `<p>${temperature} Fahrenheit is ${celsius.toFixed(2)} Celsius</p>`;
+            }
+        }
+    </script>
+
+</body>
+</html>
